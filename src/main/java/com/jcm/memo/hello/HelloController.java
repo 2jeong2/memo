@@ -11,5 +11,9 @@ public class HelloController {
 	@RequestMapping("/hello")
 	public String helloWorld() {
 		return "Hello World!!";
+		
+		//소켓 
+		//쿠키 - 내컴퓨터
+		//세션 - 서버에 저장, 나에게 세션id부여
 	}
 }
