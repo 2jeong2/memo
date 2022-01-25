@@ -28,8 +28,8 @@ public class UserController {
 		HttpSession session = request.getSession();
 		//세션의 회원 정보 제거
 		session.removeAttribute("userId");
-		session.removeAttribute("userName");
 		session.removeAttribute("userLoginId");
+		session.removeAttribute("userName");
 		
 		return "redirect:/user/signin_view";
 		

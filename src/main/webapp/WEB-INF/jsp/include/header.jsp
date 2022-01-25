@@ -9,10 +9,10 @@
 		<%-- 세션에 user id값이 존재하는지? --%>
 		<c:choose>
 			<c:when test="${not empty userId }">
-				<div class="mr-3">${userName}님 <a href="">로그아웃</a></div>
+				<div class="mr-3">${userName}님 <a href="/user/sign_out">로그아웃</a></div>
 			</c:when>
 			<c:otherwise>
-				<div class="mr-3"><a href="">로그인</a></div>
+				<div class="mr-3"><a href="/user/signin_view">로그인</a></div>
 			</c:otherwise>
 		</c:choose>
 	</header>

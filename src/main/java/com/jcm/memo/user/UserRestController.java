@@ -54,6 +54,7 @@ public class UserRestController {
 		Map<String,String> result = new HashMap<>();
 		
 		if(user != null) {
+			//로그인 성공
 			result.put("result", "success");
 			HttpSession session = request.getSession();
 			
@@ -63,6 +64,7 @@ public class UserRestController {
 			session.setAttribute("userName", user.getName());
 			
 		}else {
+			//로그인 실패
 			result.put("result","fail");
 		}
 		return result;
