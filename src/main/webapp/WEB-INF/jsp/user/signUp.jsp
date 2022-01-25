@@ -77,6 +77,7 @@
 					if(data.result == "success"){
 						//로그인 화면으로이동
 						location.href="/user/signin_view";
+						
 					}else{
 						alert("회원가입 실패");
 					}

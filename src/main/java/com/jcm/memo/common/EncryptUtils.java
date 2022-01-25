@@ -10,7 +10,7 @@ public class EncryptUtils {
 	public static String md5(String message) {
 		String encData = "";
 		try {
-			MessageDigest md = MessageDigest.getInstance("MDS");
+			MessageDigest md = MessageDigest.getInstance("MD5");
 			
 			//asdf
 			//00000000, 00000000, ... , ...]
