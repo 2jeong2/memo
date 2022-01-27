@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
 <!DOCTYPE html>
@@ -34,7 +34,7 @@
 
 			
 		</div>
-		
+		<!-- 아이디 중복 체크, session -->
 	</section>
 	<c:import url="/WEB-INF/jsp/include/footer.jsp"/>
 </div>
