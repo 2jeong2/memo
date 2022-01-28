@@ -13,7 +13,7 @@
 
 <link rel="stylesheet" href="/static/css/style.css" type="text/css">
 
-<title>게시물 업로드</title>
+<title>메모 보기</title>
 </head>
 <body>
 
@@ -21,16 +21,21 @@
 	<c:import url="/WEB-INF/jsp/include/header.jsp"/>
 	<section class="d-flex justify-content-center">
 		<div class="w-75 my-5">
-			<h1 class="text-center">메모 입력</h1>
+			<h1 class="text-center">메모 보기</h1>
 			<div class="d-flex mt-3">
 				<label class="mr-2">제목 : </label>
-				<input type="text" class="form-control col-11" id="titleInput">
+				<input type="text" class="form-control col-11" id="titleInput" value="${post.subject }">
 			</div>
-			<textarea class="form-control mt-3" rows="5" id="contentInput"></textarea>
-			<input type="file" class="mt-3" id="fileInput">
+			<textarea class="form-control mt-3" rows="5" id="contentInput">${post.content }</textarea>
+			
 			<div class="d-flex justify-content-between mt-3">
-				<a href="/post/list_view"  class="btn btn-info">목록으로</a>
-				<button type="button" class="btn btn-success" id="saveBtn">저장</button>
+				<div>
+					<a href="/post/list_view"  class="btn btn-info">목록으로</a>
+					<button type="button" class="btn btn-danger" id="deleteBtn" data-post-id="${post.id}">삭제</button>
+				</div>
+				
+				<button type="button" class="btn btn-success" id="updateBtn">수정</button>
+				
 			</div>
 		</div>
 	</section>
@@ -39,54 +44,33 @@
 
 <script>
 	$(document).ready(function(){
-		
-		$("#saveBtn").on("click",function(){
+		$("#deleteBtn").on("click",function(){
+			
+			let postId = $(this).data("post-id");
 			
 			
-			let title = $("#titleInput").val();
-			let content = $("#contentInput").val().trim();
-			
-			if(title ==""){
-				alert("제목을 입력하세요");
-				return;
-			}
-			
-			if(content == ""){
-				alert("내용을 입력하세요");
-				return;
-			}
-			
-			//
-			var formData = new FormData();
-			formData.append("subject",title);
-			formData.append("content",content);
-			formData.append("file"),$("#fileInput")[0].files[0]);
 			
 			$.ajax({
-				type:"post",
-				url:"/post/create",
-				data:formData,
-				encType:"multipart/form-data",//파일 업로드 필수 
-				processData:false,//파일 업로드 필수 
-				contentType:false,//파일 업로드 필수 
+				type:"get",
+				url:"/post/delete",
+				data:{"postId":postId}
 				success:function(data){
-					if(data.result == "success"){
-						location.href="/post/list_view";
-					}else{
-						alert("글쓰기 실패");
-					}
-				},
-				error:function(){
-					alert("에러 발생")
+				if(data.result =="success"){
+					location.href="/post/list_view";
+				}else{
+					alert("삭제 실패");
 				}
-			})
+			},
+			error:function(){
+				alert("에러 발생");
+			}
 			
+			});
 		});
 	});
 
-
-
 </script>
+
 
 </body>
 </html>

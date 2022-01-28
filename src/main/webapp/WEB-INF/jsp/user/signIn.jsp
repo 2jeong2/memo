@@ -18,12 +18,13 @@
 	<div id="wrap">
 		<c:import url="/WEB-INF/jsp/include/header.jsp"/>
 		<form id="loginForm">
+		<h1 class="text-center mt-5 mb-4">로그인</h1>
 		<section class="d-flex justify-content-center">
-			<div class="login-box my-5">
+			<div class="login-box mb-5">
 				<input type="text" class="form-control mt-3" placeholder="아이디" id="loginIdInput">
 				<input type="password" class="form-control mt-3" placeholder="비밀번호" id="passwordInput">
 				<button type="submit" class="btn btn-info btn-block mt-3">로그인</button>
-				<div class="text-center mt-2">
+				<div class="text-center mt-4">
 					<a href="/user/signup_view">회원가입</a>
 				</div>
 			</div>

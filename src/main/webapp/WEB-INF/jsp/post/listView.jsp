@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,16 +12,46 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
+<link rel="stylesheet" href="/static/css/style.css" type="text/css">
 <title>메모리스트</title>
 </head>
 <body>
 
 <div id="wrap">
 	<c:import url="/WEB-INF/jsp/include/header.jsp"/>
-	<section >
-	
-	
-	
+	<section class="d-flex justify-content-center">
+		<div class="w-75">
+		<div class="display-4 text-center my-5"><b>메모 리스트</b></div>
+			
+			<table class="table table-sm text-center">
+				
+				<thead>
+					<tr>
+						<th>No.</th>
+						<th>제목</th>
+						<th>시간</th>
+					</tr>	
+				</thead>
+			
+				<tbody>
+				<c:forEach var="post" items="${postList }">
+					<tr>
+					
+						<td>${post.id }</td>
+						<td><a href="/post/detail_view?postId=${post.id }">${post.subject }</a></td>
+						<td><fmt:formatDate value="${post.createdAt }" pattern="yyyy-MM-dd HH:mm:ss"/></td>
+					</tr>	
+					
+				</c:forEach>
+				</tbody>
+				
+			</table>
+			
+			<div class="d-flex justify-content-end mt-3">
+				<a href="/post/create_view" class="btn btn-success">글쓰기</a>
+			</div>
+		</div>
+		
 	
 	</section>
 	<c:import url="/WEB-INF/jsp/include/footer.jsp"/>

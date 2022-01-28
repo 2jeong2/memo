@@ -24,7 +24,7 @@
 		<div class="join-box my-5 "> 
 		<!-- my는 mt(margin-top)과 mb(margin-bottom)을 합한 것으로 위아래 간격을 주고 싶을 때 사용한다 -->
 			<!-- id,password, name, email -->
-			<div class="display-4">회원가입</div>
+			<div class="display-4 text-center mb-5">회원가입</div>
 			<input type="text" class="form-control mt-3" placeholder="아이디" id="loginIdInput">
 			<input type="password" class="form-control mt-3" placeholder="비밀번호" id="passwordInput">
 			<input type="password" class="form-control mt-3" placeholder="비밀번호 확인" id="passwordConfirmInput">
