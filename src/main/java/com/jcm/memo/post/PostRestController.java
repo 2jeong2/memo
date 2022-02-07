@@ -28,7 +28,7 @@ public class PostRestController {
 		public Map<String, String > create(
 				@RequestParam("subject")String subject,
 				@RequestParam("content")String content,
-				@RequestParam("file") MultipartFile file,
+				@RequestParam(value = "file", required = false) MultipartFile file,
 				HttpServletRequest request){
 			
 			HttpSession session = request.getSession();
@@ -40,6 +40,7 @@ public class PostRestController {
 			
 			
 			int count =  postBO.addPost(userId, subject, content,file);
+			
 			Map<String,String> result = new HashMap<>();
 			
 			if(count == 1) {
@@ -53,6 +54,7 @@ public class PostRestController {
 		
 		@GetMapping("/delete")
 		public Map<String ,String> postDelete(@RequestParam("postId")int postId){
+			
 			int count = postBO.deletePost(postId);
 			
 			
@@ -63,5 +65,7 @@ public class PostRestController {
 				result.put("result", "fail");
 			}
 			return result;
+			
+			
 		}
 }

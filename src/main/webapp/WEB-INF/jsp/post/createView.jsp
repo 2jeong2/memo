@@ -26,10 +26,10 @@
 				<label class="mr-2">제목 : </label>
 				<input type="text" class="form-control col-11" id="titleInput">
 			</div>
-			<textarea class="form-control mt-3" rows="5" id="contentInput"></textarea>
+			<textarea class="form-control my-5" rows="5" id="contentInput"></textarea>
 			<input type="file" class="mt-3" id="fileInput">
-			<div class="d-flex justify-content-between mt-3">
-				<a href="/post/list_view"  class="btn btn-info">목록으로</a>
+			<div class="d-flex justify-content-between my-5">
+				<a href="/post/list_view"  class="btn btn-info ">목록으로</a>
 				<button type="button" class="btn btn-success" id="saveBtn">저장</button>
 			</div>
 		</div>
@@ -60,7 +60,7 @@
 			var formData = new FormData();
 			formData.append("subject",title);
 			formData.append("content",content);
-			formData.append("file"),$("#fileInput")[0].files[0]);
+			formData.append("file",$("#fileInput")[0].files[0]);
 			
 			$.ajax({
 				type:"post",

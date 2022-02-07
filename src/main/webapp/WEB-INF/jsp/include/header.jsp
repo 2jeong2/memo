@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     
 	<header class=" d-flex align-items-center justify-content-between">
-		<h1 class="ml-3">Memo</h1>
+		<div class=" ml-3 " id="logo"><a href="/post/list_view"><b>Memo</b></a></div>
 		
 		
 		<%-- 세션에 user id값이 존재하는지? --%>

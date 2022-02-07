@@ -26,8 +26,10 @@
 				<label class="mr-2">제목 : </label>
 				<input type="text" class="form-control col-11" id="titleInput" value="${post.subject }">
 			</div>
-			<textarea class="form-control mt-3" rows="5" id="contentInput">${post.content }</textarea>
-			
+			<div class="my-5 d-flex justify-content-center">
+				<img src="${post.imagePath }" width="800" height="500">
+			</div>
+			<textarea class="form-control my-5" rows="5" id="contentInput">${post.content }</textarea>
 			<div class="d-flex justify-content-between mt-3">
 				<div>
 					<a href="/post/list_view"  class="btn btn-info">목록으로</a>
@@ -53,13 +55,13 @@
 			$.ajax({
 				type:"get",
 				url:"/post/delete",
-				data:{"postId":postId}
+				data:{"postId":postId},
 				success:function(data){
-				if(data.result =="success"){
-					location.href="/post/list_view";
-				}else{
-					alert("삭제 실패");
-				}
+					if(data.result =="success"){
+						location.href="/post/list_view";
+					}else{
+						alert("삭제 실패");
+					}
 			},
 			error:function(){
 				alert("에러 발생");

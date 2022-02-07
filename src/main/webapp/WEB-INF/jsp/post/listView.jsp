@@ -17,6 +17,7 @@
 </head>
 <body>
 
+<!-- 로그인을 하지 않은상태에서 list_view에 접속하게 되면 500에러가 발생하므로 이에 대한 alert처리나 새로운 페이지를 구현하는 것을 추천-->
 <div id="wrap">
 	<c:import url="/WEB-INF/jsp/include/header.jsp"/>
 	<section class="d-flex justify-content-center">
@@ -47,7 +48,7 @@
 				
 			</table>
 			
-			<div class="d-flex justify-content-end mt-3">
+			<div class="d-flex justify-content-end mt-3 mb-5">
 				<a href="/post/create_view" class="btn btn-success">글쓰기</a>
 			</div>
 		</div>
@@ -55,6 +56,7 @@
 	
 	</section>
 	<c:import url="/WEB-INF/jsp/include/footer.jsp"/>
+
 
 </div>
 
